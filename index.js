@@ -1,41 +1,48 @@
-// Get user input
-function getUserChoice() {
-    // prompt the user to enter choice and turn it into lower case
-    const userInput = prompt('Rock, paper, or scissor?').toLowerCase();
-    return ((userInput === 'rock' || userInput === 'paper' || userInput === 'scissor') ? userInput :
-        alert('Wrong input, try again!'));
+// wait till window loads
+window.onload = () => {
+    // variables
+    const rock = document.querySelector('#rock')
+    const paper = document.querySelector('#paper')
+    const scissor = document.querySelector('#scissor')
+
+    // add event listener to click and playRound
+    rock.addEventListener("click", e => {
+        playRound('rock', getComputerChoice())
+    })
+    paper.addEventListener("click", e => {
+        playRound('rock', getComputerChoice())
+    })
+    scissor.addEventListener("click", e => {
+        playRound('rock', getComputerChoice())
+    })
 }
 
 // Get computer's choice of rock paper or scissor
 function getComputerChoice() {
-    // input 3 choices rock paper and scissor
-    const choice = ['rock', 'paper', 'scissor'];
-    // randomly select from array
-    const randomChoice = Math.floor(Math.random() * choice.length);
-    // return the choice of array with random number
-    return choice[randomChoice];
+
+  // input 3 choices rock paper and scissor
+  const choice = ['rock', 'paper', 'scissor']
+
+  // randomly select from array
+  const randomChoice = Math.floor(Math.random() * choice.length)
+
+  // return the choice of array with random number
+  return choice[randomChoice]
 }
 
 // Play a round of game with user then return the result
 function playRound(playerSelection, computerSelection) {
-    // if user choose
-    return ((playerSelection === computerSelection) ? `Tie! You both chose ${playerSelection}!` :
-        (playerSelection === 'rock' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'rock') ? `You win! ${playerSelection} beats ${computerSelection}!` :
-            `You lose! ${computerSelection} beats ${playerSelection}!`)
-}
 
-// Function of game
-function result() {
-    const playerSelection = getUserChoice();
-    const computerSelection = getComputerChoice();
-    // run playRound and print result
-    console.log(playRound(playerSelection, computerSelection));
-}
+    // constant
+    const winScore = document.querySelector('#win-score')
+    const loseScore = document.querySelector('#lose-score')
 
-function game() {
-    for (let i = 1; i <= 5; i++) {
-        result();
+    // add logic to increase score when user loses or wins
+    if (playerSelection === 'rock' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'rock') {
+        // select the winScore's innerText convert it to int and add 1
+        winScore.innerText = +winScore.innerText + 1
+    } else if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection === 'rock'){
+        // select the loseScore's innerText convert it to int and add 1
+        loseScore.innerText = +loseScore.innerText + 1
     }
 }
-
-game();
