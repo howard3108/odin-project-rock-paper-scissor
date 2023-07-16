@@ -66,11 +66,11 @@ function resetGame() {
 
     // if comp or user win 5, alert user and reset score
     if (winScoreText >= 5) {
-        alert('You win!');
+        alert(`You win! ${winScoreText} to ${loseScoreText}`);
         winScore.innerText = '0';
         loseScore.innerText = '0';
     } else if (loseScoreText >= 5) {
-        alert('You lose!');
+        alert(`You lose! ${loseScoreText} to ${winScoreText}`);
         winScore.innerText = '0';
         loseScore.innerText = '0';
     }
