@@ -4,6 +4,9 @@ window.onload = () => {
   const rock = document.querySelector('#rock')
   const paper = document.querySelector('#paper')
   const scissor = document.querySelector('#scissor')
+  const rules = document.querySelector('#rules')
+  const modal = document.querySelector('#modal')
+  const close = document.querySelector('#close')
 
   // add event listener to click and playRound
   rock.addEventListener('click', e => {
@@ -23,6 +26,20 @@ window.onload = () => {
 
     // reset game if comp or user win 5 times
     resetGame()
+  })
+
+  rules.addEventListener('click', () => {
+    modal.style.display = "block"
+  })
+
+  close.addEventListener('click', () => {
+    modal.style.display = "none"
+  })
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none"
+    }
   })
 }
 

@@ -29,8 +29,47 @@ header > button {
 
 header > button:hover {
   border: 5px solid darkred;
+  transform: scale(1.25);
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: grey;
+  margin: 25% auto;
+  padding: 36px;
+  border: 2px solid white;
+  width: 80%;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 main {
   flex-grow: 2;
