@@ -27,15 +27,16 @@
     </div>
   </header>
   <main>
+    <div id="roundMessage">You win this round!</div>
     <div class="score-board">
       <div class="win-block">
         <p>
-          You: <span id="win-score">0</span>
+          You: <span id="winScore">0</span>
         </p>
       </div>
       <div class="lose-block">
         <p>
-          Comp: <span id="lose-score">0</span>
+          Comp: <span id="loseScore">0</span>
         </p>
       </div>
     </div>
@@ -43,6 +44,15 @@
       <button class="choices" id="rock">Rock</button>
       <button class="choices" id="paper">Paper</button>
       <button class="choices" id="scissor">Scissor</button>
+    </div>
+    <div class="result-screen" id="resultScreen">
+      <div class="result-contents">
+        <h2 id="resultModalH2">Result</h2>
+        <p>
+          <span id="yourScore">0</span> to <span id="compScore">0</span>
+        </p>
+        <button id="playAgain">Play Again!</button>
+      </div>
     </div>
   </main>
   <footer>
